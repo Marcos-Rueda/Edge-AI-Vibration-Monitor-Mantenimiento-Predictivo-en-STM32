@@ -4,7 +4,7 @@ Sistema completo de mantenimiento predictivo en el borde (Edge AI) desarrollado 
 
 El repositorio abarca el ciclo completo de ingeniería: desde el firmware de adquisición inercial y generación de datasets por puerto serie, hasta el despliegue de la librería de Machine Learning en C y el control en tiempo real de actuadores visuales (LEDs RGB) mediante PWM y DMA.
 
-🗂️ Estructura del Repositorio
+Estructura del Repositorio
 
 El proyecto está dividido en dos carpetas principales que corresponden a las dos etapas del flujo de trabajo:
 
@@ -14,7 +14,7 @@ Contiene el firmware encargado de muestrear el acelerómetro y volcar los datos 
 NanoEdge_Detection/ (Fase 2 - Inferencia On-Device):
 Contiene el firmware final. Incluye la librería estática generada por NanoEdge AI Studio (libneai.a), la lógica de detección de anomalías y el control visual del anillo LED.
 
-🚀 Características Técnicas Destacadas
+Características Técnicas Destacadas
 
 Edge AI Ultra-Compacto: Integración de la librería de Machine Learning con un 100% de Balanced Accuracy. Consumo de memoria extremadamente bajo: ~0.8 KB de RAM y ~0.4 KB de Flash.
 
@@ -24,7 +24,7 @@ Driver WS2812 optimizado (0% CPU Overhead): Control del anillo de 6 LEDs RGB med
 
 DataLogger Serie: Redirección de printf hacia USART1 (115200 bps) con soporte para coma flotante (newlib-nano) para la recolección limpia de datos.
 
-🛠️ Arquitectura Hardware
+Arquitectura Hardware
 
 Microcontrolador: STM32L475VGTx (ARM Cortex-M4 con FPU) operando a 80 MHz.
 
@@ -34,7 +34,7 @@ Actuador (WS2812): Anillo LED conectado a TIM2_CH1 gestionado por DMA1_CH5.
 
 Comunicación: UART asíncrona a 115200 bps para telemetría y debug.
 
-⚙️ Funcionamiento del Firmware (Detección)
+Funcionamiento del Firmware (Detección)
 
 Fase de Aprendizaje In Situ: Al arrancar, el sistema realiza iteraciones de aprendizaje llamando a la API de NanoEdge para memorizar el patrón de vibración normal del ventilador. Durante esta fase, el anillo LED muestra una animación azul.
 
@@ -44,7 +44,7 @@ Estado Nominal: Si la similitud con el patrón normal es alta (>= 90%), el siste
 
 Detección de Anomalía: Si la similitud cae por debajo del umbral debido a una obstrucción o fallo mecánico, el sistema alerta "Abnormal" por el puerto serie y conmuta instantáneamente todos los LEDs a color rojo brillante.
 
-💻 Instrucciones de Despliegue
+Instrucciones de Despliegue
 
 Clona este repositorio en tu equipo local.
 
