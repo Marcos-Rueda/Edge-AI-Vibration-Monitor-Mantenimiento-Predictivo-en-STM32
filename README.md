@@ -38,7 +38,7 @@ El proyecto está dividido en dos workspaces de **STM32CubeIDE** que corresponde
 
 * **Inferencia y Aprendizaje On-Device:** Integración de la librería estática precompilada `libneai.a` generada con NanoEdge AI Studio para ejecutar tanto el entrenamiento dinámico *in situ* como la detección continua de anomalías en un núcleo ARM Cortex-M4.
 * **Adquisición de Firmas Vibratorias:** Muestreo de aceleración tridimensional (ejes X, Y, Z) mediante ventanas temporales de 64 muestras consecutivas a 416 Hz con el sensor MEMS LSM6DSL.
-* **Control de Actuadores con 0% de Carga de CPU:** Driver para anillo de 6 LEDs RGB direccionables WS2812 operando a una frecuencia estricta de 800 kHz ($ \pm 150\text{ ns} $) mediante la combinación de **TIM2 (PWM) + DMA**, eliminando el *jitter* por interrupciones del sistema.
+* **Control de Actuadores con 0% de Carga de CPU:** Driver para anillo de 6 LEDs RGB direccionables WS2812 operando a una frecuencia estricta de 800 kHz (150 ns) mediante la combinación de **TIM2 (PWM) + DMA**, eliminando el *jitter* por interrupciones del sistema.
 * **DataLogger Serie Integrado:** Extracción de ventanas inerciales formateadas en CSV a través de UART a 115200 bps, sobrescribiendo `__io_putchar` con soporte para punto flotante (`newlib-nano`).
 
 ---
