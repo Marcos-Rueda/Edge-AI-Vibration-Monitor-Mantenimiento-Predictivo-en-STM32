@@ -72,7 +72,7 @@ El modelo óptimo obtenido tras la fase de *Benchmark* (basado en algoritmos com
 
 El ciclo de vida de la aplicación principal se divide en dos etapas secuenciales haciendo uso de la API de `NanoEdgeAI.h`:
 
-1. **Fase de Aprendizaje Dinámico (*Learning*):** Al arrancar, el sistema recolecta ventanas vibratorias durante las primeras $ N = 20 $ iteraciones (`LEARNING_ITERATIONS`) e invoca `neai_anomalydetection_learn(input_user_buffer)` para parametrizar la línea base del ventilador en su entorno actual. Durante este proceso, el anillo WS2812 muestra una animación rotatoria en color azul (`WS2812_Set_LED(iteration % 6, 0, 0, 255)`).
+1. **Fase de Aprendizaje Dinámico (*Learning*):** Al arrancar, el sistema recolecta ventanas vibratorias durante las primeras N = 20 iteraciones (`LEARNING_ITERATIONS`) e invoca `neai_anomalydetection_learn(input_user_buffer)` para parametrizar la línea base del ventilador en su entorno actual. Durante este proceso, el anillo WS2812 muestra una animación rotatoria en color azul (`WS2812_Set_LED(iteration % 6, 0, 0, 255)`).
 2. **Fase de Inferencia en Tiempo Real (*Detection*):** En el bucle infinito `while(1)`, el microcontrolador captura nuevas ventanas de forma ininterrumpida y ejecuta `neai_anomalydetection_detect(input_user_buffer, &similarity)`:
    * **Estado Nominal (`similarity >= 90`):** El sistema reporta operación regular por consola serie y mantiene el patrón multicolor/verde en el anillo LED.
    * **Detección de Anomalía (`similarity < 90`):** Ante una desviación vibratoria, el sistema dispara una alerta por puerto serie y conmuta inmediatamente todos los LEDs a rojo vivo (`WS2812_Set_All_LED(255, 0, 0)`).
