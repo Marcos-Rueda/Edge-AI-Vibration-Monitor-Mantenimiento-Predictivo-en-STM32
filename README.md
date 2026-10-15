@@ -63,8 +63,8 @@ El modelo óptimo obtenido tras la fase de *Benchmark* (basado en algoritmos com
 
 * **Balanced Accuracy:** 100% (0% de falsos positivos en validación).
 * **Índice de Calidad:** 100 puntos.
-* **Huella de Memoria RAM:** $ \approx 0.8\text{ KB} $.
-* **Huella de Memoria Flash:** $ \approx 0.4\text{ KB} $.
+* **Huella de Memoria RAM:** aprox 0.8 KB.
+* **Huella de Memoria Flash:** aprox 0.4 KB.
 
 ---
 
